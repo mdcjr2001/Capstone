@@ -12,8 +12,8 @@ const getUsers = (res) => {
     })
 }
 
-const createUsers = (res) => {
-    // finds all users
+const createUsers = (data, res) => {
+    // Creates users
     console.log(data)
     new Models.User(data).save()
     .then(data => res.send({result: 200, data: data}))
@@ -23,7 +23,7 @@ const createUsers = (res) => {
     })
 }
 
-const deleteUsers = (res) => {
+const deleteUsers = (req, res) => {
     // Deletes all users
     Models.User.findByIdAndDelete(req.params.id)
     .then(data => res.send({result: 200, data: data}))
@@ -33,7 +33,7 @@ const deleteUsers = (res) => {
     })
 }
 
-const updateUsers = (res) => {
+const updateUsers = (req, res) => {
     // Updates Users
     Models.User.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then(data => res.send({result: 200, data: data}))
