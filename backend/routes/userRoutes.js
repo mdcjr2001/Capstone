@@ -1,28 +1,32 @@
-let express = require('express');
-let router = express.Router();
+const express = require('express');
+const router = express.Router();
 let Controllers = require('../controllers')
 
 // http://localhost:8000/
 
 // Get User
 router.get('/', (req, res) => {
-    Controllers.userController.getUsers(res)
+    Controllers.user.getUsers(res)
 })
 
-// Create Users
+// Create User
 router.post('/create', (req, res) => {
-    Controllers.userController.createUsers(req.body, res);
+    Controllers.user.createUsers(req.body, res);
 })
 
-// Delete Users
-router.delete('/:id', (req, res) => {
-    Controllers.userController.deleteUsers(req, res)
+// Delete User
+router.delete('/:id', (res) => {
+    Controllers.user.deleteUsers(res)
 })
 
-// Update Users
+// Update User
 router.put('/:id', (res) => {
-    Controllers.userController.updateUsers(req, res)
+    Controllers.user.updateUsers(res)
 })
 
+// router.get('/profile', authenticate, (req, res) => {
+//     res.json({ message: `Welcome ${req.user.username}` });
+// });
 
-module.exports = router;
+
+module.exports = router

@@ -1,14 +1,19 @@
 import React from "react"
-import {useLocation, useNavigate} from 'react-router-dom';
+import Sidebar from "../components/Sidebar/sidebar"
 
 function Home (){
-    const location=useLocation()
+
 
     return (
-        <div className="homepage">
+      <div>
+        <Sidebar />
+        <img src="https://t4.ftcdn.net/jpg/03/30/40/57/360_F_330405756_ybSB0fbh76IfrxGLVqiSxIm4vqCBc5tQ.jpg" alt="logo" width="500" />
 
-            <h1>Hello {location.state.id} and welcome to the home</h1>
-
+            <h1> Welcome to Sportscentral 
+                where you will be amazed at the new, Instagram inspired,
+                sports social media app
+                
+            </h1>
         </div>
     )
 }

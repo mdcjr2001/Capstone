@@ -1,6 +1,5 @@
 'use strict'
-
-const Models = require('../models')
+let Models = require('../models')
 
 const getUsers = (res) => {
     // finds all users
@@ -12,16 +11,28 @@ const getUsers = (res) => {
     })
 }
 
+// const createUsers = (data, res) => {
+//     // Creates users
+//     console.log(data)
+//     new Models.User(data).save()
+//     .then(data => res.send({result: 200, data: data}))
+//     .catch(err => {
+//         console.log(err);
+//         res.send({result: 500, error: err.message})
+//     })
+// }
+
 const createUsers = (data, res) => {
-    // Creates users
     console.log(data)
     new Models.User(data).save()
     .then(data => res.send({result: 200, data: data}))
     .catch(err => {
         console.log(err);
-        res.send({result: 500, error: err.message})
+        res.status(500).send({ result: 500, error: err.message})
+        // res.send({result: 500, error: err.message})
     })
 }
+
 
 const deleteUsers = (req, res) => {
     // Deletes all users

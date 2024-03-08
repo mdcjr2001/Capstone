@@ -17,45 +17,10 @@ import logo from "../../images/logo.jpeg"
 
 export function LoginForm(props) {
  
-
-  const history = useNavigate();
-
-  const [emailId, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  async function submit(e) {
-    e.preventDefault();
-    console.log("button clicked");
-
-    try {
-      await axios
-        .post("http://localhost:8001/api/users/", {
-          emailId,
-          password,
-        })
-        .then((res) => {
-          if (res.data == "exist") {
-            alert("User already exists");
-          } else if (res.data == "notexist") {
-            history("/NBA", { state: { id: emailId } });
-          }
-        })
-        .catch((e) => {
-          alert("wrong details");
-          console.log(e);
-        });
-    } catch (e) {
-      console.log(e);
-    }
-  }
-
-
-  
-
     const navigate = useNavigate();
     
     const handleSignup = () => {
-        navigate('/NBA') 
+        navigate('/Home') 
     } 
  
     const { switchToSignup } = useContext(AccountContext);
@@ -70,7 +35,7 @@ export function LoginForm(props) {
       <Marginer direction="vertical" margin={10} />
       <BoldLink href="./Forgotpassword.jsx">Forgot your password?</BoldLink>
       <Marginer direction="vertical" margin="1.6em" />
-      <SubmitButton onClick={submit}>Signin</SubmitButton>
+      <SubmitButton onClick={handleSignup}>Signin</SubmitButton>
       <Marginer direction="vertical" margin="5px" />
       <LineText>
         Don't have an account?{" "}

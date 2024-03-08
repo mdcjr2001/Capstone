@@ -5,13 +5,13 @@ import Sidebar from '../../components/Sidebar/sidebar';
 
 
 <div className='subProfileContainer'>
-<Sidebar/>
+
 </div>
 
 
 export default function Profile() {
   return (
-    <section className="vh-100" style={{ backgroundColor: 'grey' }}>
+  <><Sidebar /><section className="vh-100" style={{ backgroundColor: 'grey' }}>
       <MDBContainer className="py-5 h-100">
         <MDBRow className="justify-content-center align-items-center h-100">
           <MDBCol lg="6" className="mb-4 mb-lg-0">
@@ -41,17 +41,17 @@ export default function Profile() {
                     </MDBRow>
 
                     {/* <MDBTypography tag="h6">Information</MDBTypography>
-                    <hr className="mt-0 mb-4" />
-                    <MDBRow className="pt-1">
-                      <MDBCol size="6" className="mb-3">
-                        <MDBTypography tag="h6">Email</MDBTypography>
-                        <MDBCardText className="text-muted">info@example.com</MDBCardText>
-                      </MDBCol>
-                      <MDBCol size="6" className="mb-3">
-                        <MDBTypography tag="h6">Phone</MDBTypography>
-                        <MDBCardText className="text-muted">123 456 789</MDBCardText>
-                      </MDBCol>
-                    </MDBRow> */}
+    <hr className="mt-0 mb-4" />
+    <MDBRow className="pt-1">
+      <MDBCol size="6" className="mb-3">
+        <MDBTypography tag="h6">Email</MDBTypography>
+        <MDBCardText className="text-muted">info@example.com</MDBCardText>
+      </MDBCol>
+      <MDBCol size="6" className="mb-3">
+        <MDBTypography tag="h6">Phone</MDBTypography>
+        <MDBCardText className="text-muted">123 456 789</MDBCardText>
+      </MDBCol>
+    </MDBRow> */}
 
                     <div className="d-flex justify-content-start">
                       <a href="#!"><MDBIcon fab icon="facebook me-3" size="lg" /></a>
@@ -65,6 +65,6 @@ export default function Profile() {
           </MDBCol>
         </MDBRow>
       </MDBContainer>
-    </section>
+    </section></>
   );
 }
