@@ -57,7 +57,7 @@ main{
 .sidebar{
   background: lightblue;
   color: white;
-  height: 100vh;
+  height: 10vh;
   width: 300px;
   transition: all 0.5s;
 }

@@ -8,12 +8,14 @@ import NFL from "../pages/feed/NFL/nfl";
 import UFC from "../pages/feed/UFC/ufc";
 import Profile from "../pages/Profile/profile";
 import Sidebar from "../components/Sidebar/sidebar";
-import Settings from "../pages/settings";
+import Settings from "../pages/settings/settings";
 import Createpost from "../pages/createPost/createPost";
 import CBB from "../pages/feed/CBB/cbb";
 import { LoginForm } from "../components/accountBox/loginForm";
 import Login from "../components/login";
- 
+import Home from "../pages/home";
+
+
 function AppRoutes(props) {
     return (
         <Routes>
@@ -30,6 +32,7 @@ function AppRoutes(props) {
             <Route path='/CBB' element={<CBB {...props} />}/>
             <Route path='/LoginForm' element={<LoginForm {...props} />}/>
             <Route path='/Login' element={<Login {...props}/>}/>
+            <Route path="/Home" element={<Home/>}/>
         </Routes>
     )
     
