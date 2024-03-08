@@ -1,28 +1,28 @@
-const express = require('express');
-const router = express.Router();
-const controllers = require('../controllers')
+let express = require('express');
+let router = express.Router();
+let Controllers = require('../controllers')
 
 // http://localhost:8000/
 
 // Get User
-router.get('/', (res) => {
-    controllers.user.getUsers(res)
+router.get('/', (req, res) => {
+    Controllers.userController.getUsers(res)
 })
 
-// Create User
-router.post('/', (res) => {
-    controllers.user.createUsers(res)
+// Create Users
+router.post('/create', (req, res) => {
+    Controllers.userController.createUsers(req.body, res);
 })
 
-// Delete User
-router.delete('/', (res) => {
-    controllers.user.deleteUsers(res)
+// Delete Users
+router.delete('/:id', (req, res) => {
+    Controllers.userController.deleteUsers(req, res)
 })
 
-// Update User
-router.put('/', (res) => {
-    controllers.user.updateUsers(res)
+// Update Users
+router.put('/:id', (res) => {
+    Controllers.userController.updateUsers(req, res)
 })
 
 
-module.exports = router
+module.exports = router;
