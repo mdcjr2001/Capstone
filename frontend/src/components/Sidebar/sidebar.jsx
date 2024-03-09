@@ -48,7 +48,7 @@ export default function Sidebar() {
               <MDBNavbarLink href='/Profile'>Profile</MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink href='/Createpost'>Create a Post</MDBNavbarLink>
+              <MDBNavbarLink href='/CreatePost'>Create a Post</MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
               <MDBNavbarLink href='/Settings'>Settings</MDBNavbarLink>

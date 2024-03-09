@@ -3,21 +3,24 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Sidebar from "../../components/Sidebar/sidebar";
 import { BoxContainer, SubmitButton } from "../../components/accountBox/common";
+import axios from "axios";
 
-export default function Createpost() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+export default function CreatePost() {
+  const [caption, setCaptionChange] = useState("");
+  const [img, setImgChange] = useState("");
+  const [tags, setTagsChange] = useState("");
   const [inputValue, setInputValue] = useState([]);
   const [editIndex, setEditIndex] = useState(-1);
-  const [file, setFile] = useState("");
+  
 
   async function submit(e) {
     e.preventDefault();
-    console.log("button clicked");
+    console.log("button clicked")
+    console.log(caption, tags, inputValue, editIndex, img);
     try {
       await axios
-        .post("http://localhost:8001/api/post/create/", {
-          id,
+        .post("http://localhost:8001/api/posts/createpost/", {
+          // userId,
           caption,
           img,
           tags,
@@ -36,20 +39,24 @@ export default function Createpost() {
     }
   }
 
-  function getFile(event) {
-    setFile(event.target.files[0]);
+  function getImg(event) {
+    setImg(event.target.files[0]);
   }
 
-  const handleFirstNameChange = (e) => {
-    setFirstName(e.target.value);
+  const handleImgChange = (e) => {
+    setImgChange(e.target.value);
   };
 
-  const handleLastNameChange = (e) => {
-    setLastName(e.target.value);
+  const handleCaptionChange = (e) => {
+    setCaptionChange(e.target.value);
+  };
+
+  const handleTagsChange = (e) => {
+    setTagsChange(e.target.value);
   };
 
   const handleInputValue = () => {
-    if (!file || !firstName || !lastName) {
+    if ( img || !caption || !tags) {
       return;
     }
     if (editIndex === -1) {
@@ -57,25 +64,25 @@ export default function Createpost() {
       setInputValue((prevVal) => [
         ...prevVal,
         {
-          file: file,
-          firstName: firstName,
-          lastName: lastName,
+         img: img,
+          caption: caption,
+          tags: tags,
         },
       ]);
     } else {
       // Updating an existing item
       const updatedItems = [...inputValue];
       updatedItems[editIndex] = {
-        file: file,
-        firstName: firstName,
-        lastName: lastName,
+       img: img,
+        caption: caption,
+        tags: tags,
       };
       setInputValue(updatedItems);
       setEditIndex(-1);
     }
-    setFile("");
-    setFirstName("");
-    setLastName("");
+    setImg("");
+    setCaptionChange("");
+    setTagsChange("");
   };
 
   const handleDeleteAll = () => {
@@ -85,9 +92,9 @@ export default function Createpost() {
 
   const handleEdit = (index) => {
     setEditIndex(index);
-    setFile(inputValue[index].file);
-    setFirstName(inputValue[index].firstName);
-    setLastName(inputValue[index].lastName);
+    setImg(inputValue[index].img);
+    setCaptionChange(inputValue[index].firstName);
+    setImgChange(inputValue[index].lastName);
   };
 
   const DeleteItem = (index) => {
@@ -101,30 +108,37 @@ export default function Createpost() {
     <div className="App">
       <h1>Create a Post</h1>
       {/* input field */}
-      <input type="file" onChange={getFile}></input>
-      <img src={file} />
+      {/* <input type= "text" onChange={getFile}></input> */}
+      <input
+        type="text"
+        placeholder="Enter Image Link"
+        value={img}
+        onChange={handleImgChange}
+        className="p-1"
+      />
+      <img src= {img} />
       <input
         type="text"
         placeholder="Enter Caption"
-        value={firstName}
-        onChange={handleFirstNameChange}
+        value={caption}
+        onChange={handleCaptionChange}
         className="p-1"
       />
       &nbsp;
       <input
         type="text"
         placeholder="Enter Tags"
-        value={lastName}
-        onChange={handleLastNameChange}
+        value={tags}
+        onChange={handleTagsChange}
         className="p-1"
       />
       &nbsp;
-      {!file || !firstName || !lastName ? (
-        <Button variant="primary" onClick={submit}>
+      { img || !caption || !tags ? (
+        <Button variant="primary" onClick={handleInputValue}>
           {editIndex === -1 ? "Add" : "Update"}
         </Button>
       ) : (
-        <Button variant="primary" onClick={handleInputValue}>
+        <Button variant="primary" onClick={submit}>
           {editIndex === -1 ? "Add" : "Update"}
         </Button>
       )}
@@ -161,9 +175,9 @@ export default function Createpost() {
                   {inputValue.map((item, index) => {
                     return (
                       <tr key={index} className="al">
-                        {/* <td>{item.file}</td> */}
-                        <td>{item.firstName}</td>
-                        <td>{item.lastName}</td>
+                        {/* <td>{item img}</td> */}
+                        <td>{item.caption}</td>
+                        <td>{item.tags}</td>
                         <td>
                           {editIndex === index ? (
                             <Button

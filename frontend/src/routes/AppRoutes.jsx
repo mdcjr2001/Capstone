@@ -9,21 +9,18 @@ import UFC from "../pages/feed/UFC/ufc";
 import Profile from "../pages/Profile/profile";
 import Sidebar from "../components/Sidebar/sidebar";
 import Settings from "../pages/settings/settings";
-import Createpost from "../pages/createPost/createPost";
 import CBB from "../pages/feed/CBB/cbb";
 import { LoginForm } from "../components/accountBox/loginForm";
-import Login from "../components/login";
 import Home from "../pages/home";
 import Messages from "../pages/Messages/messages";
 import CFB from "../pages/feed/CFB/cfb";
 import WCBB from "../pages/feed/WCBB/wcbb";
 import WNBA from "../pages/feed/WNBA/wnba";
-
+import CreatePost from "../pages/createPost/createPost"
 
 function AppRoutes(props) {
     return (
         <Routes>
-            {}
             <Route index element={<AccountBox {...props} /> } />
             <Route path='/Mainpage' element={<Mainpage {...props} />}/>
             <Route path='/NBA' element={<NBA {...props} />}/>
@@ -32,10 +29,9 @@ function AppRoutes(props) {
             <Route path='/Profile' element={<Profile {...props} />}/>
             <Route path='/Sidebar' element={<Sidebar {...props} />}/>
             <Route path='/Settings' element={<Settings {...props} />}/>
-            <Route path='/Createpost' element={<Createpost {...props} />}/>
+            <Route path='/CreatePost' element={<CreatePost {...props} />}/>
             <Route path='/CBB' element={<CBB {...props} />}/>
             <Route path='/LoginForm' element={<LoginForm {...props} />}/>
-            <Route path='/Login' element={<Login {...props}/>}/>
             <Route path="/Home" element={<Home/>}/>
             <Route path="/Messages" element={<Messages/>}/>
             <Route path='/WCBB' element={<WCBB {...props} />}/>
