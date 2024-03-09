@@ -16,33 +16,33 @@ Create Post - Create your own post that can be shared to the feeds (currently un
 Frontend - HTML, Javascript, CSS, ReactJs, NodeJs
 Backend - Express, mongoose as well as connecting to MongoDB
 
-Clone the repository: git clone 
-
-Navigate to the project directory: cd mini-project-ii
+# Try it Yourself
+Clone the repository: git clone https://github.com/mdcjr2001/Capstone.git
+Navigate to the project directory: cd Capstone
 
 Install the dependencies for the frontend and backend:
 
-cd mini-project2
+cd frontend
 
-npm install
+npm init
 
-cd ../server
+npm install exprerss 
 
-npm install
+cd backend
 
-Setup the MySQL database
-Create a new MySQL database for the application
+npm install express mongoose
+
+Setup the MongoDb database
+Create a new database for the application
 Update the database configuration in dbconnect.js
 Setup enviromental variables:
 
-Create a .env file in the server directory
-Specify the required environment variables such as DB_HOST, DB_USER, DB_PASSWORD, and DB_NAME
 Start the development server:
 
-cd server
-
-nodemon server.js
-
-cd ../mini-project2
+split terminal
+cd frontened
+cd backend
 
 npm run dev
+
+Enjoy the project
