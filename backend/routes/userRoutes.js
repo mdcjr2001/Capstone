@@ -15,13 +15,13 @@ router.post('/create', (req, res) => {
 })
 
 // Delete User
-router.delete('/:id', (res) => {
-    Controllers.user.deleteUsers(res)
+router.delete('/:id', (req, res) => {
+    Controllers.user.deleteUsers(req, res)
 })
 
 // Update User
-router.put('/:id', (res) => {
-    Controllers.user.updateUsers(res)
+router.put('/:id', (req, res) => {
+    Controllers.user.updateUsers(req, res)
 })
 
 // router.get('/profile', authenticate, (req, res) => {
