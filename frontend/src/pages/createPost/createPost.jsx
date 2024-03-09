@@ -1,21 +1,58 @@
 import "./styles.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Sidebar from "../../components/Sidebar/sidebar";
 import { BoxContainer, SubmitButton } from "../../components/accountBox/common";
 import axios from "axios";
 
 export default function CreatePost() {
+  const [posts, setPosts] = useState([]);
   const [caption, setCaptionChange] = useState("");
   const [img, setImgChange] = useState("");
   const [tags, setTagsChange] = useState("");
   const [inputValue, setInputValue] = useState([]);
   const [editIndex, setEditIndex] = useState(-1);
-  
+
+  useEffect(() => {
+    const getPosts = async () => {
+      try {
+        await axios
+          .get("http://localhost:8001/api/posts/")
+          .then((res) => {
+            console.log('fetch response', res.data);
+            setPosts(res.data.data)
+          })
+          .catch((e) => {
+            alert("wrong post");
+            console.log(e);
+          });
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    getPosts()
+  }, []);
+
+  const getPosts = async () => {
+    try {
+      await axios
+        .get("http://localhost:8001/api/posts/")
+        .then((res) => {
+          console.log('fetch response', res.data.data[0]);
+          setPosts(res.data.data)
+        })
+        .catch((e) => {
+          alert("wrong post");
+          console.log(e);
+        });
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   async function submit(e) {
     e.preventDefault();
-    console.log("button clicked")
+    console.log("button clicked");
     console.log(caption, tags, inputValue, editIndex, img);
     try {
       await axios
@@ -39,8 +76,8 @@ export default function CreatePost() {
     }
   }
 
-  function getImg(event) {
-    setImg(event.target.files[0]);
+  function handleImgChangx(event) {
+    setImgChange(event.target.files[0]);
   }
 
   const handleImgChange = (e) => {
@@ -56,7 +93,7 @@ export default function CreatePost() {
   };
 
   const handleInputValue = () => {
-    if ( img || !caption || !tags) {
+    if (img || !caption || !tags) {
       return;
     }
     if (editIndex === -1) {
@@ -64,7 +101,7 @@ export default function CreatePost() {
       setInputValue((prevVal) => [
         ...prevVal,
         {
-         img: img,
+          img: img,
           caption: caption,
           tags: tags,
         },
@@ -73,14 +110,14 @@ export default function CreatePost() {
       // Updating an existing item
       const updatedItems = [...inputValue];
       updatedItems[editIndex] = {
-       img: img,
+        img: img,
         caption: caption,
         tags: tags,
       };
       setInputValue(updatedItems);
       setEditIndex(-1);
     }
-    setImg("");
+    setImgChange("");
     setCaptionChange("");
     setTagsChange("");
   };
@@ -116,7 +153,7 @@ export default function CreatePost() {
         onChange={handleImgChange}
         className="p-1"
       />
-      <img src= {img} />
+      <img src={img} />
       <input
         type="text"
         placeholder="Enter Caption"
@@ -133,12 +170,12 @@ export default function CreatePost() {
         className="p-1"
       />
       &nbsp;
-      { img || !caption || !tags ? (
-        <Button variant="primary" onClick={handleInputValue}>
+      {!img || !caption || !tags ? (
+        <Button variant="primary" onClick={submit}>
           {editIndex === -1 ? "Add" : "Update"}
         </Button>
       ) : (
-        <Button variant="primary" onClick={submit}>
+        <Button variant="primary" onClick={handleInputValue}>
           {editIndex === -1 ? "Add" : "Update"}
         </Button>
       )}
@@ -156,7 +193,24 @@ export default function CreatePost() {
         </Button>
       )}
       {/* Display content */}
-      <div className="mt-3">
+      <h1>Display Content</h1>
+      <button onClick={getPosts}>Get Posts</button>
+      <div className="display">
+      {
+        posts.map((item, index)=>(
+          <div key={index}>
+            <p>{item.caption}</p>
+            </div>
+        ))
+      // posts.map((item, index) => {
+      //   <div key={index}>
+      //     <p>Tests</p>
+      //     <p>{item.caption}</p>
+      //     </div>
+      // })
+      }
+      </div>
+      {/* <div className="mt-3">
         {inputValue.length === 0 ? (
           <div className="h3">Add content for your post</div>
         ) : (
@@ -167,7 +221,7 @@ export default function CreatePost() {
                   <tr>
                     <th>Image</th>
                     <th>Caption</th>
-                    {/* <th>Tags</th> */}
+                    <th>Tags</th>
                     <th width="240px">Tags</th>
                   </tr>
                 </thead>
@@ -175,7 +229,7 @@ export default function CreatePost() {
                   {inputValue.map((item, index) => {
                     return (
                       <tr key={index} className="al">
-                        {/* <td>{item img}</td> */}
+                        <td>{item img}</td>
                         <td>{item.caption}</td>
                         <td>{item.tags}</td>
                         <td>
@@ -229,8 +283,9 @@ export default function CreatePost() {
             </div>
           </div>
         )}
+      
         <Sidebar />
-      </div>
+      </div> */}
     </div>
   );
 }
