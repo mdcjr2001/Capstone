@@ -13,7 +13,7 @@ const getPosts = (res) => {
 
 const createPosts = (data, res) => {
     console.log(data)
-    new Models.User(data).save()
+    new Models.Post(data).save()
     .then(data => res.send({result: 200, data: data}))
     .catch(err => {
         console.log(err);
@@ -24,7 +24,7 @@ const createPosts = (data, res) => {
 
 const deletePosts = (req, res) => {
     // Deletes all users
-    Models.User.findByIdAndDelete(req.params.id)
+    Models.Post.findByIdAndDelete(req.params.id)
     .then(data => res.send({result: 200, data: data}))
     .catch(err => {
         console.log(err);
@@ -34,7 +34,7 @@ const deletePosts = (req, res) => {
 
 const updatePosts = (req, res) => {
     console.log("updatePost:", req.body)
-    Models.User.findByIdAndUpdate(req.params.id, req.body, { new: true} )
+    Models.Post.findByIdAndUpdate(req.params.id, req.body, { new: true} )
     .then(data => res.send({result: 200, data: data}))
     .catch(err => {
         console.log(err);

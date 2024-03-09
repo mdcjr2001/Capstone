@@ -11,36 +11,33 @@ export default function Createpost() {
   const [editIndex, setEditIndex] = useState(-1);
   const [file, setFile] = useState("");
 
-
   async function submit(e) {
     e.preventDefault();
     console.log("button clicked");
-  try {
-    await axios
-      .post("http://localhost:8001/api/post/create/", {
-        id,
-        caption,
-        // img,
-        tags,
-      })
-      .then((res) => {
-        if (res.data == "exist") {
-          alert("Post already exists");
-        }
-      })
-      .catch((e) => {
-        alert("wrong post");
-        console.log(e);
-      });
-  } catch (e) {
-    console.log(e);
+    try {
+      await axios
+        .post("http://localhost:8001/api/post/create/", {
+          id,
+          caption,
+          img,
+          tags,
+        })
+        .then((res) => {
+          if (res.data == "exist") {
+            alert("Post already exists");
+          }
+        })
+        .catch((e) => {
+          alert("wrong post");
+          console.log(e);
+        });
+    } catch (e) {
+      console.log(e);
+    }
   }
-};
-
-
 
   function getFile(event) {
-    setFile(event.target.files[0])
+    setFile(event.target.files[0]);
   }
 
   const handleFirstNameChange = (e) => {
@@ -62,8 +59,8 @@ export default function Createpost() {
         {
           file: file,
           firstName: firstName,
-          lastName: lastName
-        }
+          lastName: lastName,
+        },
       ]);
     } else {
       // Updating an existing item
@@ -71,7 +68,7 @@ export default function Createpost() {
       updatedItems[editIndex] = {
         file: file,
         firstName: firstName,
-        lastName: lastName
+        lastName: lastName,
       };
       setInputValue(updatedItems);
       setEditIndex(-1);
@@ -104,16 +101,15 @@ export default function Createpost() {
     <div className="App">
       <h1>Create a Post</h1>
       {/* input field */}
-    <input type="file" onChange={getFile}></input>
-      <img src={file} /> 
-       <input
+      <input type="file" onChange={getFile}></input>
+      <img src={file} />
+      <input
         type="text"
         placeholder="Enter Caption"
         value={firstName}
         onChange={handleFirstNameChange}
         className="p-1"
       />
-   
       &nbsp;
       <input
         type="text"
@@ -123,17 +119,17 @@ export default function Createpost() {
         className="p-1"
       />
       &nbsp;
-      { !file || !firstName || !lastName ? (
+      {!file || !firstName || !lastName ? (
         <Button variant="primary" onClick={submit}>
           {editIndex === -1 ? "Add" : "Update"}
-        </Button> 
+        </Button>
       ) : (
         <Button variant="primary" onClick={handleInputValue}>
           {editIndex === -1 ? "Add" : "Update"}
         </Button>
-      )}   
+      )}
       <BoxContainer>
-      <SubmitButton onClick={submit}>Upload</SubmitButton>
+        <SubmitButton onClick={submit}>Upload</SubmitButton>
       </BoxContainer>
       &nbsp;
       {inputValue.length === 0 ? (
@@ -147,7 +143,6 @@ export default function Createpost() {
       )}
       {/* Display content */}
       <div className="mt-3">
-       
         {inputValue.length === 0 ? (
           <div className="h3">Add content for your post</div>
         ) : (
@@ -175,7 +170,7 @@ export default function Createpost() {
                               variant="outline-danger"
                               style={{
                                 marginRight: "5px",
-                                height: "2.2rem"
+                                height: "2.2rem",
                               }}
                               onClick={() => DeleteItem(index)}
                             >
@@ -189,7 +184,7 @@ export default function Createpost() {
                                 variant="outline-primary"
                                 style={{
                                   marginRight: "5px",
-                                  height: "2.2rem"
+                                  height: "2.2rem",
                                 }}
                                 onClick={() => handleEdit(index)}
                               >
@@ -201,7 +196,7 @@ export default function Createpost() {
                                 variant="outline-danger"
                                 style={{
                                   marginRight: "5px",
-                                  height: "2.2rem"
+                                  height: "2.2rem",
                                 }}
                                 onClick={() => DeleteItem(index)}
                               >
@@ -209,8 +204,7 @@ export default function Createpost() {
                                   ❌
                                 </span>
                               </Button>
-                             
-                             </>
+                            </>
                           )}
                         </td>
                       </tr>
@@ -220,7 +214,8 @@ export default function Createpost() {
               </table>
             </div>
           </div>
-        )}<Sidebar />
+        )}
+        <Sidebar />
       </div>
     </div>
   );
