@@ -2,13 +2,42 @@ import "./styles.css";
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Sidebar from "../../components/Sidebar/sidebar";
+import { BoxContainer, SubmitButton } from "../../components/accountBox/common";
 
 export default function Createpost() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [inputValue, setInputValue] = useState([]);
   const [editIndex, setEditIndex] = useState(-1);
-  const [file, setFile] = useState()
+  const [file, setFile] = useState("");
+
+
+  async function submit(e) {
+    e.preventDefault();
+    console.log("button clicked");
+  try {
+    await axios
+      .post("http://localhost:8001/api/post/create/", {
+        id,
+        caption,
+        // img,
+        tags,
+      })
+      .then((res) => {
+        if (res.data == "exist") {
+          alert("Post already exists");
+        }
+      })
+      .catch((e) => {
+        alert("wrong post");
+        console.log(e);
+      });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+
 
   function getFile(event) {
     setFile(event.target.files[0])
@@ -73,7 +102,6 @@ export default function Createpost() {
 
   return (
     <div className="App">
-      <Sidebar />
       <h1>Create a Post</h1>
       {/* input field */}
     <input type="file" onChange={getFile}></input>
@@ -85,7 +113,7 @@ export default function Createpost() {
         onChange={handleFirstNameChange}
         className="p-1"
       />
-      
+   
       &nbsp;
       <input
         type="text"
@@ -95,15 +123,18 @@ export default function Createpost() {
         className="p-1"
       />
       &nbsp;
-      {!firstName || !lastName ? (
-        <Button variant="primary" onClick={handleInputValue} disabled>
+      { !file || !firstName || !lastName ? (
+        <Button variant="primary" onClick={submit}>
           {editIndex === -1 ? "Add" : "Update"}
-        </Button>
+        </Button> 
       ) : (
         <Button variant="primary" onClick={handleInputValue}>
           {editIndex === -1 ? "Add" : "Update"}
         </Button>
-      )}
+      )}   
+      <BoxContainer>
+      <SubmitButton onClick={submit}>Upload</SubmitButton>
+      </BoxContainer>
       &nbsp;
       {inputValue.length === 0 ? (
         <Button variant="danger" onClick={handleDeleteAll} disabled>
@@ -116,6 +147,7 @@ export default function Createpost() {
       )}
       {/* Display content */}
       <div className="mt-3">
+       
         {inputValue.length === 0 ? (
           <div className="h3">Add content for your post</div>
         ) : (
@@ -124,8 +156,9 @@ export default function Createpost() {
               <table className="table table-bordered">
                 <thead>
                   <tr>
+                    <th>Image</th>
                     <th>Caption</th>
-                    <th>Tags</th>
+                    {/* <th>Tags</th> */}
                     <th width="240px">Tags</th>
                   </tr>
                 </thead>
@@ -176,7 +209,8 @@ export default function Createpost() {
                                   ❌
                                 </span>
                               </Button>
-                            </>
+                             
+                             </>
                           )}
                         </td>
                       </tr>
@@ -186,7 +220,7 @@ export default function Createpost() {
               </table>
             </div>
           </div>
-        )}
+        )}<Sidebar />
       </div>
     </div>
   );
