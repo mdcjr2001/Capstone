@@ -33,11 +33,11 @@ cd frontend
 
 npm init
 
-npm install exprerss 
+npm install  
 
 cd backend
 
-npm install express mongoose
+npm i
 
 Setup the MongoDb database
 Create a new database for the application

@@ -1,5 +1,5 @@
 'use strict'
-let Models = require('../models/post')
+let Models = require('../models')
 
 const getPosts = (res) => {
     // finds all posts
