@@ -57,7 +57,7 @@ export default function Sidebar() {
               <MDBNavbarLink href='/Messages'>Messages</MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink href='/LogOut'>Log Out</MDBNavbarLink>
+              <MDBNavbarLink href='/#'>Log Out</MDBNavbarLink>
             </MDBNavbarItem>
 
 
@@ -72,6 +72,12 @@ export default function Sidebar() {
                 <MDBDropdownItem link href='/NFL'>NFL</MDBDropdownItem>
                 <MDBDropdownItem link href='/UFC'>UFC</MDBDropdownItem>
                 <MDBDropdownItem link href='/CBB'>CBB</MDBDropdownItem>
+                <MDBDropdownItem link href='/CFB'>CFB</MDBDropdownItem>
+                <MDBDropdownItem link href='/WCBB'>WCBB</MDBDropdownItem>
+                <MDBDropdownItem link href='/WNBA'>WNBA</MDBDropdownItem>
+
+
+
 
                 </MDBDropdownMenu>
               </MDBDropdown>

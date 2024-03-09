@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Post from "../../../Post/Post";
 // import Suggestions from "./Suggestions";
-import "./nba.css"
+import "./wcbb.css"
 import Sidebar from "../../../components/Sidebar/sidebar";
 
 
-function NBA() {
+function WCBB() {
 
   const [posts, setPosts] = useState([
     {
@@ -70,4 +70,4 @@ function NBA() {
   );
 }
 
-export default NBA;
+export default WCBB;

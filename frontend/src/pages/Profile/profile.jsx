@@ -1,70 +1,196 @@
 import React from 'react';
-import "./profile.css"
-import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
 import Sidebar from '../../components/Sidebar/sidebar';
-
-
-<div className='subProfileContainer'>
-
-</div>
-
+import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography } from 'mdb-react-ui-kit';
+import "./profile.css"
 
 export default function Profile() {
   return (
-  <><Sidebar /><section className="vh-100" style={{ backgroundColor: 'grey' }}>
-      <MDBContainer className="py-5 h-100">
-        <MDBRow className="justify-content-center align-items-center h-100">
-          <MDBCol lg="6" className="mb-4 mb-lg-0">
-            <MDBCard className="mb-3" style={{ borderRadius: '.5rem' }}>
-              <MDBRow className="g-0">
-                <MDBCol md="4" className="gradient-custom text-center text-black"
-                  style={{ borderTopLeftRadius: '.5rem', borderBottomLeftRadius: '.5rem' }}>
-                  <MDBCardImage src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
-                    alt="Avatar" className="my-5" style={{ width: '80px' }} fluid />
-                  <MDBTypography tag="h5">Marcus Ceasor</MDBTypography>
-                  <MDBCardText>Software Developer</MDBCardText>
-                  <MDBIcon far icon="edit mb-5" />
-                </MDBCol>
-                <MDBCol md="8">
-                  <MDBCardBody className="p-4">
-                    <MDBTypography tag="h6">Information</MDBTypography>
-                    <hr className="mt-0 mb-4" />
-                    <MDBRow className="pt-1">
-                      <MDBCol size="6" className="mb-3">
-                        <MDBTypography tag="h6">Email</MDBTypography>
-                        <MDBCardText className="text-muted">mdcjr01@gmail.com</MDBCardText>
-                      </MDBCol>
-                      <MDBCol size="6" className="mb-3">
-                        <MDBTypography tag="h6">Phone</MDBTypography>
-                        <MDBCardText className="text-muted">225-284-****</MDBCardText>
-                      </MDBCol>
-                    </MDBRow>
+  
+    <div className="container rounded bg-white mt-5 mb-5">
+  
+  <div className="row">
+    <div className='timeline'>
+      <Sidebar /></div>
+    <div className="col-md-3 border-right">
+      <div className="d-flex flex-column align-items-center text-center p-3 py-5">
+        <img
+          className="rounded-circle mt-5"
+          width="150px"
+          src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+        />
+        <span className="font-weight-bold"></span>
+        <span className="text-black-50">beta@gmail.com</span>
+        <span> </span>
+      </div>
+    </div>
+    <div className="col-md-5 border-right">
+      <div className="p-3 py-5">
+        <div className="d-flex justify-content-between align-items-center mb-3">
+          <h4 className="text-right">Profile Settings</h4>
+        </div>
+        <div className="row mt-2">
+          <div className="col-md-6">
+            <label className="labels">Name</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="first name"
+              defaultValue=""
+            />
+          </div>
+          <div className="col-md-6">
+            <label className="labels">Surname</label>
+            <input
+              type="text"
+              className="form-control"
+              defaultValue=""
+              placeholder="surname"
+            />
+          </div>
+        </div>
+        <div className="row mt-3">
+          <div className="col-md-12">
+            <label className="labels">Mobile Number</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="enter phone number"
+              defaultValue=""
+            />
+          </div>
+          <div className="col-md-12">
+            <label className="labels">Address Line 1</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="enter address line 1"
+              defaultValue=""
+            />
+          </div>
+          <div className="col-md-12">
+            <label className="labels">Address Line 2</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="enter address line 2"
+              defaultValue=""
+            />
+          </div>
+          <div className="col-md-12">
+            <label className="labels">Postcode</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="enter address line 2"
+              defaultValue=""
+            />
+          </div>
+          <div className="col-md-12">
+            <label className="labels">State</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="enter address line 2"
+              defaultValue=""
+            />
+          </div>
+          <div className="col-md-12">
+            <label className="labels">Area</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="enter address line 2"
+              defaultValue=""
+            />
+          </div>
+          <div className="col-md-12">
+            <label className="labels">Email ID</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="enter email id"
+              defaultValue=""
+            />
+          </div>
+          <div className="col-md-12">
+            <label className="labels">Education</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="education"
+              defaultValue=""
+            />
+          </div>
+        </div>
+        <div className="row mt-3">
+          <div className="col-md-6">
+            <label className="labels">Country</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="country"
+              defaultValue=""
+            />
+          </div>
+          <div className="col-md-6">
+            <label className="labels">State/Region</label>
+            <input
+              type="text"
+              className="form-control"
+              defaultValue=""
+              placeholder="state"
+            />
+          </div>
+        </div>
+        <div className="mt-5 text-center">
+          <button className="btn btn-primary profile-button" type="button">
+            Save Profile
+          </button>
+        </div>
+      </div>
+    </div>
+    <div className="col-md-4">
+      <div className="p-3 py-5">
+        <div className="d-flex justify-content-between align-items-center experience">
+          <span>Edit Experience</span>
+          <span className="border px-3 p-1 add-experience">
+            <i className="fa fa-plus" />
+            &nbsp;Experience
+          </span>
+        </div>
+        <br />
+        <div className="col-md-12">
+          <label className="labels">Experience in Designing</label>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="experience"
+            defaultValue=""
+          />
+        </div>{" "}
+        <br />
+        <div className="col-md-12">
+          <label className="labels">Additional Details</label>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="additional details"
+            defaultValue=""
+          />
+          <div className="timeline">
+      
+      <img
+          src="https://t4.ftcdn.net/jpg/03/30/40/57/360_F_330405756_ybSB0fbh76IfrxGLVqiSxIm4vqCBc5tQ.jpg"
+          alt="logo"
+          width="350"
+          height={350}
+        />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
-                    {/* <MDBTypography tag="h6">Information</MDBTypography>
-    <hr className="mt-0 mb-4" />
-    <MDBRow className="pt-1">
-      <MDBCol size="6" className="mb-3">
-        <MDBTypography tag="h6">Email</MDBTypography>
-        <MDBCardText className="text-muted">info@example.com</MDBCardText>
-      </MDBCol>
-      <MDBCol size="6" className="mb-3">
-        <MDBTypography tag="h6">Phone</MDBTypography>
-        <MDBCardText className="text-muted">123 456 789</MDBCardText>
-      </MDBCol>
-    </MDBRow> */}
-
-                    <div className="d-flex justify-content-start">
-                      <a href="#!"><MDBIcon fab icon="facebook me-3" size="lg" /></a>
-                      <a href="#!"><MDBIcon fab icon="twitter me-3" size="lg" /></a>
-                      <a href="#!"><MDBIcon fab icon="instagram me-3" size="lg" /></a>
-                    </div>
-                  </MDBCardBody>
-                </MDBCol>
-              </MDBRow>
-            </MDBCard>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
-    </section></>
-  );
+  )
 }

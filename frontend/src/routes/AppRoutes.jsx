@@ -14,6 +14,10 @@ import CBB from "../pages/feed/CBB/cbb";
 import { LoginForm } from "../components/accountBox/loginForm";
 import Login from "../components/login";
 import Home from "../pages/home";
+import Messages from "../pages/Messages/messages";
+import CFB from "../pages/feed/CFB/cfb";
+import WCBB from "../pages/feed/WCBB/wcbb";
+import WNBA from "../pages/feed/WNBA/wnba";
 
 
 function AppRoutes(props) {
@@ -33,6 +37,11 @@ function AppRoutes(props) {
             <Route path='/LoginForm' element={<LoginForm {...props} />}/>
             <Route path='/Login' element={<Login {...props}/>}/>
             <Route path="/Home" element={<Home/>}/>
+            <Route path="/Messages" element={<Messages/>}/>
+            <Route path='/WCBB' element={<WCBB {...props} />}/>
+            <Route path='/WNBA' element={<WNBA {...props} />}/>
+            <Route path='/CFB' element={<CFB {...props} />}/>
+
         </Routes>
     )
     

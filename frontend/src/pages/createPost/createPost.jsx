@@ -1,12 +1,18 @@
 import "./styles.css";
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
+import Sidebar from "../../components/Sidebar/sidebar";
 
 export default function Createpost() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [inputValue, setInputValue] = useState([]);
   const [editIndex, setEditIndex] = useState(-1);
+  const [file, setFile] = useState()
+
+  function getFile(event) {
+    setFile(event.target.files[0])
+  }
 
   const handleFirstNameChange = (e) => {
     setFirstName(e.target.value);
@@ -17,7 +23,7 @@ export default function Createpost() {
   };
 
   const handleInputValue = () => {
-    if (!firstName || !lastName) {
+    if (!file || !firstName || !lastName) {
       return;
     }
     if (editIndex === -1) {
@@ -25,6 +31,7 @@ export default function Createpost() {
       setInputValue((prevVal) => [
         ...prevVal,
         {
+          file: file,
           firstName: firstName,
           lastName: lastName
         }
@@ -33,13 +40,14 @@ export default function Createpost() {
       // Updating an existing item
       const updatedItems = [...inputValue];
       updatedItems[editIndex] = {
+        file: file,
         firstName: firstName,
         lastName: lastName
       };
       setInputValue(updatedItems);
       setEditIndex(-1);
     }
-
+    setFile("");
     setFirstName("");
     setLastName("");
   };
@@ -51,6 +59,7 @@ export default function Createpost() {
 
   const handleEdit = (index) => {
     setEditIndex(index);
+    setFile(inputValue[index].file);
     setFirstName(inputValue[index].firstName);
     setLastName(inputValue[index].lastName);
   };
@@ -64,15 +73,19 @@ export default function Createpost() {
 
   return (
     <div className="App">
+      <Sidebar />
       <h1>Create a Post</h1>
       {/* input field */}
-      <input
+    <input type="file" onChange={getFile}></input>
+      <img src={file} /> 
+       <input
         type="text"
         placeholder="Enter Caption"
         value={firstName}
         onChange={handleFirstNameChange}
         className="p-1"
       />
+      
       &nbsp;
       <input
         type="text"
@@ -112,7 +125,7 @@ export default function Createpost() {
                 <thead>
                   <tr>
                     <th>Caption</th>
-                    <th>Last Name</th>
+                    <th>Tags</th>
                     <th width="240px">Tags</th>
                   </tr>
                 </thead>
@@ -120,6 +133,7 @@ export default function Createpost() {
                   {inputValue.map((item, index) => {
                     return (
                       <tr key={index} className="al">
+                        {/* <td>{item.file}</td> */}
                         <td>{item.firstName}</td>
                         <td>{item.lastName}</td>
                         <td>

@@ -1,0 +1,5 @@
+body{background:black}
+.text-white-50 { color: white }
+.bg-blue { background-color:#00b5ec; }
+.border-bottom { border-bottom: 1px solid white; }
+.box-shadow { box-shadow: 0 .25rem .75rem white }

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Post from "../../../Post/Post";
 // import Suggestions from "./Suggestions";
-import "./nba.css"
+import "./cfb.css"
 import Sidebar from "../../../components/Sidebar/sidebar";
 
 
-function NBA() {
+function CFB() {
 
   const [posts, setPosts] = useState([
     {
@@ -70,4 +70,4 @@ function NBA() {
   );
 }
 
-export default NBA;
+export default CFB;
