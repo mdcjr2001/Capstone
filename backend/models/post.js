@@ -4,9 +4,9 @@ const postSchema = new mongoose.Schema(
   {
     id: {
       type: String,
-    //   required: true,
+      //   required: true,
     },
-    Caption: {
+    caption: {
       type: String,
       max: 500,
     },
@@ -14,9 +14,8 @@ const postSchema = new mongoose.Schema(
     //   type: String,
     //   required: false,
     // },
-    Tags: {
-      type: Array,
-      default: [],
+    tags: {
+      type: String,
     },
   },
   { timestamps: true }

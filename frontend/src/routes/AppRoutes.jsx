@@ -19,6 +19,8 @@ import WNBA from "../pages/feed/WNBA/wnba";
 import CreatePost from "../pages/createPost/createPost"
 import Create from "../pages/createPost/create";
 import Edit from "../pages/createPost/Edit";
+import CreatePosts from "../pages/createPost/createPost";
+import EditPost from "../pages/createPost/EditPost";
 
 
 function AppRoutes(props) {
@@ -41,7 +43,8 @@ function AppRoutes(props) {
             <Route path='/WNBA' element={<WNBA {...props} />}/>
             <Route path='/CFB' element={<CFB {...props} />}/>
             <Route path='/Create' element={<Create {...props} />}/>
-            <Route path='/Edit' element={<Edit {...props} />}/>
+            <Route path='/EditPost' element={<EditPost {...props} />}/>
+            <Route path='/CreatePosts' element={<CreatePosts {...props} />}/>
 
 
         </Routes>

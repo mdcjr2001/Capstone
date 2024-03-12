@@ -12,7 +12,7 @@ const getPosts = (res) => {
 }
 
 const createPosts = (data, res) => {
-    console.log(data)
+    console.log('createpost',data)
     new Models.Post(data).save()
     .then(data => res.send({result: 200, data: data}))
     .catch(err => {
