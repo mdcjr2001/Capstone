@@ -27,40 +27,40 @@ app.get("/", (req, res) => {
 });
 
 
-// app.post("/#",async(req,res)=>{
-//     const{email,password}=req.body
+app.post("/#",async(req,res)=>{
+    const{email,password}=req.body
 
-//     const data={
-//         email:email,
-//         password:password
-//     }
+    const data={
+        email:email,
+        password:password
+    }
 
-//     try{
-//         const check=await collection.findOne({email:email})
+    try{
+        const check=await collection.findOne({email:email})
 
-//         if(check){
-//             res.json("exist")
-//         }
-//         else{
-//             res.json("notexist")
-//             await collection.insertMany([data])
-//         }
+        if(check){
+            res.json("exist")
+        }
+        else{
+            res.json("notexist")
+            await collection.insertMany([data])
+        }
 
-//     }
-//     catch(e){
-//         res.json("fail")
-//     }
+    }
+    catch(e){
+        res.json("fail")
+    }
 
-// })
+})
 
 app.post("/Createpost",async(req,res)=>{
-    const{id, caption, img, tags}=req.body
+    const{id, Caption, img, Tags}=req.body
 
     const data={
         id:id,
-        caption:caption,
+        Caption:Caption,
         img:img,
-        tags:tags,
+        Tags:Tags,
     }
 
     try{
@@ -81,6 +81,16 @@ app.post("/Createpost",async(req,res)=>{
 
 })
 
+app.delete("/",async(req,res)=> {
+    const{id, Caption, img, Tags}=req.body
+
+    const data={
+        id:id,
+        Caption:Caption,
+        // img:img,
+        Tags:Tags,
+    }
+})
 
 
 // set port, listen for requests

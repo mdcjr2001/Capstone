@@ -17,6 +17,9 @@ import CFB from "../pages/feed/CFB/cfb";
 import WCBB from "../pages/feed/WCBB/wcbb";
 import WNBA from "../pages/feed/WNBA/wnba";
 import CreatePost from "../pages/createPost/createPost"
+import Create from "../pages/createPost/create";
+import Edit from "../pages/createPost/Edit";
+
 
 function AppRoutes(props) {
     return (
@@ -37,6 +40,9 @@ function AppRoutes(props) {
             <Route path='/WCBB' element={<WCBB {...props} />}/>
             <Route path='/WNBA' element={<WNBA {...props} />}/>
             <Route path='/CFB' element={<CFB {...props} />}/>
+            <Route path='/Create' element={<Create {...props} />}/>
+            <Route path='/Edit' element={<Edit {...props} />}/>
+
 
         </Routes>
     )
