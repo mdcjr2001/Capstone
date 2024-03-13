@@ -36,11 +36,11 @@ export default function Sidebar() {
 
         <MDBCollapse navbar open={openBasic}>
           <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
-            <MDBNavbarItem>
+            {/* <MDBNavbarItem> */}
               {/* <MDBNavbarLink active aria-current='page' href='#'>
                 Home
               </MDBNavbarLink> */}
-            </MDBNavbarItem>
+            {/* </MDBNavbarItem> */}
             <MDBNavbarItem>
               <MDBNavbarLink href='/Home'>Home</MDBNavbarLink>
             </MDBNavbarItem>

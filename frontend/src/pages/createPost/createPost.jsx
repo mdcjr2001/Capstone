@@ -50,7 +50,7 @@ export default function CreatePosts() {
           setPosts(res.data.data);
         })
         .catch((e) => {
-          alert("wrong post");
+          alert("Getting posts");
           console.log(e);
         });
     } catch (e) {
@@ -66,7 +66,7 @@ export default function CreatePosts() {
         setPosts(res.data.data);
       })
       .catch((e) => {
-        alert("wrong post");
+        // alert("wrong post");
         console.log(e);
       });
     getPosts();
@@ -90,7 +90,7 @@ export default function CreatePosts() {
           }
         })
         .catch((e) => {
-          alert("wrong post");
+          alert("Successgul creation");
           console.log(e);
         });
     } catch (e) {

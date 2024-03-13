@@ -33,7 +33,8 @@ export function SignupForm(props) {
           if (res.data == "exist") {
             alert("User already exists");
           } else if (res.data == "notexist") {
-            history("/NBA", { state: { id: emailId } });
+            alert("Successful SignUp")
+            navigate("/Home",{ state: { id: emailId } });
           }
         })
         .catch((e) => {
@@ -45,11 +46,11 @@ export function SignupForm(props) {
     }
   }
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  // const handleLogin = () => {
-  //     navigate('/NBA')
-  // }
+  const handleLogin = () => {
+      navigate('/Home')
+  }
 
   const { switchToSignin } = useContext(AccountContext);
   return (
@@ -60,7 +61,7 @@ export function SignupForm(props) {
           alt="logo"
           width="230"
         />
-        {/* <Input type="text"  placeholder="Full name" /> */}
+        <Input type="text"  placeholder="Full name" /> 
         <Input
           type="email"
           onChange={(e) => {
@@ -75,10 +76,11 @@ export function SignupForm(props) {
           }}
           placeholder="Password"
         />
-        {/* <Input type="password" placeholder="Confirm password" /> */}
+        <Input type="password" placeholder="Confirm password" ></Input>
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
-      <SubmitButton onClick={submit}>Signup</SubmitButton>
+      <SubmitButton onClick={submit}>Create Account</SubmitButton>
+      <SubmitButton onClick={handleLogin}>Signup</SubmitButton>
       <LineText>
         Already have an account?{" "}
         <BoldLink onClick={switchToSignin} href="#">

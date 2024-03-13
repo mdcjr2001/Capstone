@@ -44,6 +44,9 @@
     padding: 1px;
     font-size: 10px;
   }
+  .postIcon-clicked {
+    background-color: white;
+  }
   
   .postIcon :hover {
     cursor: pointer;
