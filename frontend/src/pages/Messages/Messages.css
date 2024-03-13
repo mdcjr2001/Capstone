@@ -1,4 +1,5 @@
 body{background:black}
+.text {color: white;}
 .text-white-50 { color: white }
 .bg-blue { background-color:#00b5ec; }
 .border-bottom { border-bottom: 1px solid white; }

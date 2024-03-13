@@ -16,9 +16,6 @@ import Messages from "../pages/Messages/messages";
 import CFB from "../pages/feed/CFB/cfb";
 import WCBB from "../pages/feed/WCBB/wcbb";
 import WNBA from "../pages/feed/WNBA/wnba";
-import CreatePost from "../pages/createPost/createPost"
-import Create from "../pages/createPost/create";
-import Edit from "../pages/createPost/Edit";
 import CreatePosts from "../pages/createPost/createPost";
 import EditPost from "../pages/createPost/EditPost";
 
@@ -34,15 +31,12 @@ function AppRoutes(props) {
             <Route path='/Profile' element={<Profile {...props} />}/>
             <Route path='/Sidebar' element={<Sidebar {...props} />}/>
             <Route path='/Settings' element={<Settings {...props} />}/>
-            <Route path='/CreatePost' element={<CreatePost {...props} />}/>
             <Route path='/CBB' element={<CBB {...props} />}/>
             <Route path='/LoginForm' element={<LoginForm {...props} />}/>
             <Route path="/Home" element={<Home/>}/>
             <Route path="/Messages" element={<Messages/>}/>
             <Route path='/WCBB' element={<WCBB {...props} />}/>
             <Route path='/WNBA' element={<WNBA {...props} />}/>
-            <Route path='/CFB' element={<CFB {...props} />}/>
-            <Route path='/Create' element={<Create {...props} />}/>
             <Route path='/EditPost' element={<EditPost {...props} />}/>
             <Route path='/CreatePosts' element={<CreatePosts {...props} />}/>
 

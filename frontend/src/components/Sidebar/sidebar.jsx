@@ -48,11 +48,11 @@ export default function Sidebar() {
               <MDBNavbarLink href='/Profile'>Profile</MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink href='/CreatePost'>Create a Post</MDBNavbarLink>
+              <MDBNavbarLink href='/CreatePosts'>Create a Post</MDBNavbarLink>
             </MDBNavbarItem>
-            <MDBNavbarItem>
+            {/* <MDBNavbarItem>
               <MDBNavbarLink href='/Settings'>Settings</MDBNavbarLink>
-            </MDBNavbarItem>
+            </MDBNavbarItem> */}
             <MDBNavbarItem>
               <MDBNavbarLink href='/Messages'>Messages</MDBNavbarLink>
             </MDBNavbarItem>

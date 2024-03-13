@@ -49,8 +49,8 @@ function NBA() {
       <img
           src="https://t4.ftcdn.net/jpg/03/30/40/57/360_F_330405756_ybSB0fbh76IfrxGLVqiSxIm4vqCBc5tQ.jpg"
           alt="logo"
-          width="350"
-          height={350}
+          width="250"
+          height={250}
         />
       <div className="timeline__left">
         <div className="timeline__posts">
