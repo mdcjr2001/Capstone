@@ -7,7 +7,7 @@ import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 
-function Post({ user, postImage, comments, likes, timestamp }) {
+function Post({ user, postImage, comments, likes, caption, timestamp }) {
   return (
     <div className="post">
       <div className="post__header">
@@ -36,6 +36,7 @@ function Post({ user, postImage, comments, likes, timestamp }) {
         </div>
         Liked by {likes} people.
       </div>
+      <div>{caption = ''}</div>
      <div>
             Commented by {comments} people
           </div>

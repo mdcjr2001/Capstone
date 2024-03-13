@@ -1,9 +1,9 @@
 'use strict'
 let Models = require('../models')
 
-const getUsers = (res) => {
-    // finds all users
-    Models.User.find({})
+const getPosts = (res) => {
+    // finds all posts
+    Models.Post.find({})
     .then(data => res.send({result: 200, data: data}))
     .catch(err => {
         console.log(err);
@@ -11,9 +11,9 @@ const getUsers = (res) => {
     })
 }
 
-const createUsers = (data, res) => {
-    console.log(data)
-    new Models.User(data).save()
+const createPosts = (data, res) => {
+    console.log('createpost',data)
+    new Models.Post(data).save()
     .then(data => res.send({result: 200, data: data}))
     .catch(err => {
         console.log(err);
@@ -22,10 +22,9 @@ const createUsers = (data, res) => {
     })
 }
 
-
-const deleteUsers = (req, res) => {
+const deletePosts = (req, res) => {
     // Deletes all users
-    Models.User.findByIdAndDelete(req.params.id)
+    Models.Post.findByIdAndDelete(req.params.id)
     .then(data => res.send({result: 200, data: data}))
     .catch(err => {
         console.log(err);
@@ -33,19 +32,9 @@ const deleteUsers = (req, res) => {
     })
 }
 
-// const updateUsers = (req, res) => {
-//     // Updates Users
-//     Models.User.findByIdAndUpdate(req.params.id, req.body, { new: true })
-//     .then(data => res.send({result: 200, data: data}))
-//     .catch(err => {
-//         console.log(err);
-//         res.send({result: 500, error: err.message})
-//     })
-// }
-
-const updateUsers = (req, res) => {
-    console.log("updateUser:", req.body)
-    Models.User.findByIdAndUpdate(req.params.id, req.body, { new: true} )
+const updatePosts = (req, res) => {
+    console.log("updatePost:", req.body)
+    Models.Post.findByIdAndUpdate(req.params.id, req.body, { new: true} )
     .then(data => res.send({result: 200, data: data}))
     .catch(err => {
         console.log(err);
@@ -53,8 +42,7 @@ const updateUsers = (req, res) => {
         // res.send({result: 500, error: err.message})
     })
 }
-
 
 module.exports = {
-    getUsers, updateUsers, createUsers, deleteUsers
+    getPosts, updatePosts, createPosts, deletePosts
 }

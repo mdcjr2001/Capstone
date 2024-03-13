@@ -51,5 +51,3 @@ cd frontened
 cd backend
 
 npm run dev
-
-Enjoy the project
